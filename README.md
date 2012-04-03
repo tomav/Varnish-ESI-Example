@@ -2,22 +2,30 @@
 
 This bunch of files should help you to setup _Proof of Concept (POC)_ about Varnish cache and ESI.
 
+## Prerequisite
+
+You need to install :
+
+* Apache2  
+* PHP5  
+* Varnish  
+
 ## Install
 
-1. Edit your /etc/hosts 
+1. Edit your /etc/hosts  
 Add a new line `127.0.0.1  varnish-esi-example`
 
-2. Edit `Varnish-ESI-Example/apache/varnish-esi-example.conf`
+2. Edit `Varnish-ESI-Example/apache/varnish-esi-example.conf`  
 Adapt the `DocumentRoot` to match `Varnish-ESI-Example/www` folder located in the package.
 
-3. Load de configuration of the test backend in Apache
-`sudo ln -s /this/should/be/replaced/to/match/Varnish-ESI-Example/apache/varnish-esi-example.conf /etc/sites-enabled/`
+3. Load de configuration of the test backend in Apache  
+`sudo ln -s /this/should/be/replaced/to/match/Varnish-ESI-Example/apache/varnish-esi-example.conf /etc/sites-enabled/`  
 `sudo apachectl restart`
 
-4. Edit Varnish configuration file `Varnish-ESI-Example/varnish/varnish-esi-example.vcl`
+4. Edit Varnish configuration file `Varnish-ESI-Example/varnish/varnish-esi-example.vcl`  
 Adapt `/this/should/be/replaced/to/match/` to match `Varnish-ESI-Example/varnish` folder
 
-5. Start Varnish (but adapt the command line before)
+5. Start Varnish (but adapt the command line before)  
 `sudo varnishd -a varnish-esi-example:8080 -T localhost:6082 -f /this/should/be/replaced/to/match/Varnish-ESI-Example/varnish/varnish-esi-example.vcl -s file,/opt/local/var/varnish/varnish-esi-example.bin,10M`
 
 ## Play
