@@ -6,8 +6,22 @@ backend varnish_origin {
 	.port = "80";
 }
 
+# ACL to allow cache Purge
+acl purge {
+	"localhost";
+}
+
 ## RECEIVE
 sub vcl_recv {
+	
+	# check acl purge at the top and purges
+  if (req.request == "PURGE") {
+    if (!client.ip ~ purge) {
+      error 405 "Not allowed.";
+    }
+    return (lookup);
+  }
+  
 	if (! req.http.Host)
 	{
 		error 404 "Your query need a host header !";
@@ -37,6 +51,23 @@ sub vcl_fetch {
 		return (deliver);
 	}
 }
+
+# HIT
+sub vcl_hit {
+	if (req.request == "PURGE") {
+		purge;
+		error 200 "Purged.";
+	}
+}
+
+# MISS
+sub vcl_miss {
+	if (req.request == "PURGE") {
+		purge;
+		error 200 "Purged.";
+	}
+}
+
 
 ## DELIVER
 sub vcl_deliver {
