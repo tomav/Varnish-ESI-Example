@@ -1,0 +1,15 @@
+#layout {
+  width:800px;
+  margin:auto;
+}
+#left {
+  width:600px;
+  float:left;
+}
+#right {
+  margin-left:620px;
+}
+#footer {
+  clear:both;
+  text-align: center;
+}
