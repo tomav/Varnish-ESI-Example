@@ -52,16 +52,15 @@ Note : The cache _Time To Live (TTL)_ is configurable in `varnish-esi-example-fe
 
 ## Results
 
-`# No cache and 1s TTFB every page load`  
-`ab -n 1000 -c 10 http://varnish-esi-example/`  
-`Requests per second:    9.97 [#/sec] (mean) (5 fails)`
+    # No cache and 1s TTFB every page load  
+    ab -n 1000 -c 10 http://varnish-esi-example/  
+    Requests per second:    9.97 [#/sec] (mean) (5 fails)
 
+    # ESI tag, cache on lorem.php for 10s (except first hit), layout served by Apache   
+    ab -n 1000 -c 10 http://varnish-esi-example:8080/\?esi  
+    Requests per second:    622.81 [#/sec] (mean) (no fail)
 
-`# ESI tag, cache on lorem.php for 10s (except first hit), layout served by Apache`  
-`ab -n 1000 -c 10 http://varnish-esi-example:8080/\?esi`  
-`Requests per second:    622.81 [#/sec] (mean) (no fail)`
-
-`# ESI tag, full page cached and served by Varnish (except first hit)`  
-`ab -n 1000 -c 10 http://varnish-esi-example:8080/\?full`  
-`Requests per second:    892.39 [#/sec] (mean) (no fail)`
+    # ESI tag, full page cached and served by Varnish (except first hit)  
+    ab -n 1000 -c 10 http://varnish-esi-example:8080/\?full  
+    Requests per second:    892.39 [#/sec] (mean) (no fail)
 
