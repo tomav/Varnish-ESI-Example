@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- <meta http-equiv="Refresh" content="1"> -->
+    <meta http-equiv="Refresh" content="1">
     <title>Varnish ESI Example</title>
     <style type="text/css" media="screen">
       #layout {
@@ -31,7 +31,7 @@
       </div>
       <div id="right">
         <h3>No cache !</h3>
-        <p><?php echo date("s"); ?></p>
+        <p><?php echo date("h:m:s"); ?></p>
         <ul>
           <li>Lorem ipsum</li>
           <li>Lorem ipsum</li>
