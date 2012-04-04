@@ -1,9 +1,9 @@
 # Varnish ESI Example
 
-This bunch of files should help you to setup _Proof of Concept (POC)_ about Varnish cache and ESI.
+This bunch of files should help you to setup _Proof of Concept (POC)_ about Varnish cache and ESI.  
 It has been tested with `varnish-3.0.2` on Mac OSX 10.7.
 
-## Prerequisite
+## Prerequisites
 
 You need to install :
 
@@ -13,7 +13,7 @@ You need to install :
 
 ## Install
 
-1. Clone the project !
+1. Clone the project !  
 `git clone git@github.com:tomav/Varnish-ESI-Example.git`
 
 2. Edit your /etc/hosts  
@@ -36,7 +36,7 @@ Adapt `/this/should/be/replaced/to/match/` to match `Varnish-ESI-Example/varnish
 
 Your static website should be available at [http://varnish-esi-example/](http://varnish-esi-example/) and the content should not appear because nor Apache nor your browser understand ESI tags.
 
-Your cached website should be available at [http//varnish-esi-example:8080](http//varnish-esi-example:8080) and the content should appear. As you can see, the ESI tag is processced and the content cached for 5 seconds (this can be changed in varnish-esi-example-fetch.vcl). There is a `sleep(1)` to simulate a 1 second _Time To First Byte (TTFB)_
+Your cached website should be available at [http//varnish-esi-example:8080](http//varnish-esi-example:8080) and the content should appear. As you can see, the ESI tag is processced and the content cached for 5 seconds (this can be changed in `varnish-esi-example-fetch.vcl`). There is a `sleep(1)` to simulate a 1 second _[Time To First Byte (TTFB)](http://en.wikipedia.org/wiki/Time_To_First_Byte)_
 
 The page contains :
 
