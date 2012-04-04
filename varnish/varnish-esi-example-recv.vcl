@@ -1,3 +1,5 @@
+# This is the Varnish Receive configuration at VCL format (included by varnish-esi-example.vcl)
+
 # Compatiblity with Apache log
 remove req.http.X-Forwarded-For;
 set    req.http.X-Forwarded-For = client.ip;

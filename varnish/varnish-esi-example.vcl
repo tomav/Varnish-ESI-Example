@@ -1,3 +1,6 @@
+# Varnish configuration file
+
+# Define here the hostname and port of you backend (website), where Varnish should grab the page when cache expires.
 backend varnish_origin {
 	.host = "varnish-esi-example";
 	.port = "80";
@@ -7,9 +10,10 @@ backend varnish_origin {
 sub vcl_recv {
 	if (! req.http.Host)
 	{
-		error 404 "Need a host header";
+		error 404 "Your query need a host header !";
 	}
 
+	# Let's define a configuration per backend, based on request host
 	if (req.http.Host ~ "varnish-esi-example")
 	{
 		set req.backend = varnish_origin;
@@ -17,8 +21,8 @@ sub vcl_recv {
 	}
 	else
 	{
-		set req.backend = varnish_origin;
-		return (lookup);
+		# This shoud be something else than varnish_origin
+		error 404 "No Varnish configuration for your host header.";
 	}
 }
 
