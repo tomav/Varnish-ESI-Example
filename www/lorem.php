@@ -1,4 +1,4 @@
-<h3>1s TTFB, cached 5s</h3>
+<h3>1s TTFB, cached 10s</h3>
 <?php
   // Simulates a TTFB at 1 second
   sleep(1);
