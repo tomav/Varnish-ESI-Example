@@ -24,7 +24,7 @@ Adapt the `DocumentRoot` and `CustomLog` to match `Varnish-ESI-Example/www` fold
 
 4. Load the backend VirtualHost in Apache  
 `sudo ln -s /this/should/be/replaced/to/match/Varnish-ESI-Example/apache/varnish-esi-example.conf /etc/apache2/sites-enabled/`  
-`sudo apache2ctl restart`
+`sudo apachectl restart`
 
 5. Edit Varnish configuration file `Varnish-ESI-Example/varnish/varnish-esi-example.vcl`  
 Adapt `/this/should/be/replaced/to/match/` occurrences to match files located in `Varnish-ESI-Example/varnish` folder.
