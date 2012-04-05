@@ -6,6 +6,10 @@ set beresp.do_esi = true;
 set beresp.ttl = 0s;
 
 # Defining TTL for specific URLs
+if (req.url ~ "\.(ico|js|css)$") {
+	set beresp.ttl = 24h;
+}
+
 if (req.url == "/lorem.php") {
 	set beresp.ttl = 10s;
 }
