@@ -42,11 +42,11 @@ Your cached website should be available at [http://varnish-esi-example:8080/?esi
 
 Your full cached website should be available at [http://varnish-esi-example:8080/?full](http://varnish-esi-example:8080/?full). Here, ESI is used and cache is  used on all page includes. 
 
-The `ìndex.php` file contains :
+The `index.php` file contains :
 
 * a `meta-refresh` to let you see what is changing every 2 seconds
 * the time appears in the center and right column. You will see that `/lorem.php` is cached 10 seconds via ESI.  
-* the `/footer.php` file is cached 24 hours but you can purge it manually via a link which call `/purge.php` (modify the text of the file, then click "pruge").
+* the `/footer.php` file is cached 24 hours but you can purge it manually via a link which call `/purge.php` (modify the text of the file, then click "purge").
 
 Note : The cache _Time To Live (TTL)_ is configurable in `varnish-esi-example-fetch.vcl` for both `lorem.php` and `footer.php` files.
 
